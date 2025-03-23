@@ -23,7 +23,6 @@ def nothing(a):
  
 def initializeTrackbars(intialTracbarVals,wT=480, hT=240):
     cv2.namedWindow("Trackbars")
-    cv2.resizeWindow("Trackbars", 360, 240)
     cv2.createTrackbar("Width Top", "Trackbars", intialTracbarVals[0],wT//2, nothing)
     cv2.createTrackbar("Height Top", "Trackbars", intialTracbarVals[1], hT, nothing)
     cv2.createTrackbar("Width Bottom", "Trackbars", intialTracbarVals[2],wT//2, nothing)
@@ -34,8 +33,7 @@ def valTrackbars(wT=480, hT=240):
     heightTop = cv2.getTrackbarPos("Height Top", "Trackbars")
     widthBottom = cv2.getTrackbarPos("Width Bottom", "Trackbars")
     heightBottom = cv2.getTrackbarPos("Height Bottom", "Trackbars")
-    points = np.float32([(widthTop, heightTop), (wT-widthTop, heightTop),
-                      (widthBottom , heightBottom ), (wT-widthBottom, heightBottom)])
+    points = np.float32([(widthTop, heightTop), (wT-widthTop, heightTop),(widthBottom , heightBottom ), (wT-widthBottom, heightBottom)])
     return points
  
 def drawPoints(img,points):
